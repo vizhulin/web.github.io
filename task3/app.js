@@ -1,10 +1,10 @@
 $(function() {
     var list = $('<ul>');
     var element = $('<li>');
-    element.make_line('Сделать задание #3 по web-программированию');
+    element.make_line('РЎРґРµР»Р°С‚СЊ Р·Р°РґР°РЅРёРµ #3 РїРѕ web-РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЋ');
     var input_line = $('<input>').attr({type: 'text', id: 'add_task_input'});
     var add_button = $('<button>').attr({id: 'add_task'});
-    add_button.text('Добавить');
+    add_button.text('Р”РѕР±Р°РІРёС‚СЊ');
     $(add_button).click(function() {
         var add_line = $('<li>');
         add_line.make_line($('#add_task_input').val());
@@ -18,10 +18,9 @@ $(function() {
 
 $.fn.make_line = function(text){
     this.append($('<span>').text(text));
-    var delete_button = $('<button>').text('Удалить');
+    var delete_button = $('<button>').text('РЈРґР°Р»РёС‚СЊ');
     $(delete_button).click(function(){
         $(this).closest('li').remove();
     });
     this.append(delete_button);
 };
-
