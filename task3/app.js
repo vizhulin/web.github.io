@@ -1,26 +1,28 @@
-$(function() {
-    var list = $('<ul>');
-    var element = $('<li>');
-    element.make_line('Сделать задание #3 по web-программированию');
-    var input_line = $('<input>').attr({type: 'text', id: 'add_task_input'});
-    var add_button = $('<button>').attr({id: 'add_task'});
-    add_button.text('Добавить');
-    $(add_button).click(function() {
-        var add_line = $('<li>');
-        add_line.make_line($('#add_task_input').val());
-        list.append(add_line);
-    });
-    list.append(element);
-    $('#root').append(list);    
-    $('#root').append(input_line);
-    $('#root').append(add_button);
-});
+function add(text) {
+    var li = document.createElement('li');
+    var span = document.createElement('span');
+    span.innerHTML = text;
+    li.appendChild(span);
+    var button1 = document.createElement("button");
+    button1.innerHTML = "Удалить";
+    button1.addEventListener("click",  function(){ li.remove()});
 
-$.fn.make_line = function(text){
-    this.append($('<span>').text(text));
-    var delete_button = $('<button>').text('Удалить');
-    $(delete_button).click(function(){
-        $(this).closest('li').remove();
-    });
-    this.append(delete_button);
-};
+    li.appendChild(button1);
+    ul.appendChild(li);
+}
+
+var div = document.getElementById("root");
+var ul = document.createElement('ul');
+div.appendChild(ul);
+
+add("Сделать задание #3 по web-программированию");
+
+var input = document.createElement("input");
+input.id = "add_task_input";
+
+var button2 = document.createElement("button");
+button2.innerHTML = "add_task";
+button2.id = "add_task";
+button2.addEventListener("click", function(){add(input.value)});
+div.appendChild(input);
+div.appendChild(button2);
